@@ -29,7 +29,7 @@ class FastAPIApp:
 
         self.__app = FastAPI(
             title=settings.PROJECT_NAME,
-            description="Первый аукцион недвижимости",
+            description="Мегашкола",
             version=settings.PROJECT_VERSION,
             lifespan=self.lifespan,
             debug=settings.DEBUG_MODE
