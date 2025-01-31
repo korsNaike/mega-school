@@ -1,0 +1,14 @@
+name: "megaschool-rag"
+
+services:
+  megaschool-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: megaschool-backend
+    hostname: megaschool-backend
+    restart: "unless-stopped"
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
