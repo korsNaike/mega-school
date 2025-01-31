@@ -53,4 +53,4 @@ class OpenAIAgent(BaseAgent):
         return ResponseFromAgent(**response_dict)
 
     def get_sign(self):
-        return "\nanswer from GPT-4o"
+        return "\nanswer from " + self.__model
