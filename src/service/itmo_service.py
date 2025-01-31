@@ -27,7 +27,11 @@ class ItmoService(BaseService):
 
     async def answer_for_query(self, dto: PredictionRequest) -> PredictionResponse:
         query_text = dto.query
-        question, answers = query_text.split('\n1.', 1)
+        splitted = query_text.split('\n1.', 1)
+        if len(splitted) == 2:
+            question, answers = splitted
+        else:
+            question, answers = (query_text, '')
         self._logger.debug(f'Query: {query_text}, Question: {question}, Answers: {answers}')
 
         links = await self.__search_engine.find_links(question, links_count=1)

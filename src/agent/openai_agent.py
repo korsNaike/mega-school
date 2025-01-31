@@ -1,5 +1,4 @@
 import json
-from typing import Any
 
 from dependency_injector.wiring import inject, Provide
 from openai import OpenAI
@@ -7,7 +6,7 @@ from tenacity import retry, stop_after_attempt
 
 from src.agent.base_agent import BaseAgent
 from src.application_logger import ApplicationLogger
-from src.dto.request import PredictionResponse, ResponseFromAgent
+from src.dto.request import ResponseFromAgent
 
 
 class OpenAIAgent(BaseAgent):
@@ -44,8 +43,8 @@ class OpenAIAgent(BaseAgent):
         self._logger.debug(f"Answer from gpt: {response}")
 
         response_json = response.choices[0].message.content
-        response_json.replace("```json", '')
-        response_json.replace("```", '')
+        response_json = response_json.replace("```json", '')
+        response_json = response_json.replace("```", '')
         self._logger.debug(f"JSON-message from gpt: {response_json}")
         response_dict = json.loads(response_json)
 

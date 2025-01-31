@@ -3,6 +3,7 @@ from dependency_injector.providers import Singleton, Factory, List
 from faker.proxy import Faker
 from openai import OpenAI
 
+from src.agent.gigachat_agent import GigaChatAgent
 from src.agent.openai_agent import OpenAIAgent
 from src.application_logger import ApplicationLogger
 from src.config import Settings

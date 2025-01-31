@@ -25,6 +25,8 @@ class Settings(BaseSettings):
     OPENAI_URL: str
     AGENT_SYSTEM_PROMPT: str = "Ты знаешь всё о российском университете ИТМО, твоя задача - помогать искать информацию по данному университету и выдавать верные ответы на тест."
 
+    GIGACHAT_AUTH: str = "<TOKEN>"
+
 
 
 settings = Settings()

@@ -9,3 +9,5 @@ __pycache_
 *.ipynb
 .ipynb_checkpoints
 __pycache__/
+
+pytest-report.junit.xml
