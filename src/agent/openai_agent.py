@@ -16,18 +16,20 @@ class OpenAIAgent(BaseAgent):
             self,
             logger: ApplicationLogger = Provide['logger_factory'],
             client: OpenAI = Provide["openai_client"],
-            system_prompt: str = Provide["settings.provided.AGENT_SYSTEM_PROMPT"]
+            system_prompt: str = Provide["settings.provided.AGENT_SYSTEM_PROMPT"],
+            model: str = Provide["settings.provided.OPENAI_MODEL"],
     ):
         self._logger = logger
         self._logger.activate(self.__class__.__name__)
         self.__client = client
         self.__system_prompt = system_prompt
+        self.__model = model
 
 
     @retry(reraise=True, stop=stop_after_attempt(3))
     async def find_answer(self, prompt: str) -> ResponseFromAgent:
         response = self.__client.chat.completions.create(
-            model="gpt-4o",
+            model=self.__model,
             messages=[
                 {
                     "role": "system",

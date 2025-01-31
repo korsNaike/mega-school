@@ -23,6 +23,8 @@ class Settings(BaseSettings):
 
     OPENAI_KEY: str
     OPENAI_URL: str
+    OPENAI_MODEL: str = "gpt-4o-mini"
+
     AGENT_SYSTEM_PROMPT: str = "Ты знаешь всё о российском университете ИТМО, твоя задача - помогать искать информацию по данному университету и выдавать верные ответы на тест."
 
     GIGACHAT_AUTH: str = "<TOKEN>"
