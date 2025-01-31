@@ -53,4 +53,4 @@ class OpenAIAgent(BaseAgent):
         return ResponseFromAgent(**response_dict)
 
     def get_sign(self):
-        return "\nanswer from " + self.__model
+        return "\n" + self.__model
